@@ -8,18 +8,31 @@ const {
 module.exports = {
     mode: "development",
     devtool: "eval-source-map",
-    entry: "./src/index.js", //might not be needed?
+    entry: "./src/index.js", //maybe not needed?
     output: {
         path: path.resolve("dist"),
         filename: "index_bundle.js"
     },
     module: {
         rules: [{
+                test: /\.css$/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }]
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: "babel-loader"
             },
             {
                 test: [/\.vert$/, /\.frag$/],
