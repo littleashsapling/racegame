@@ -1,6 +1,6 @@
 Using Phaser 3.20.1 with webpack project template modified to work with react.
 
-1) set up webpages,
+1) set up webpages/base components-done
 
 2) set up database on firebase
 
